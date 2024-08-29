@@ -49,37 +49,18 @@ bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
 
 //END_ASYNC
 
+
 //START_SYNC
 
+// Synchronously hash the password
+var hashSync = bcrypt.hashSync(myPlaintextPassword, saltRounds);
+console.log(`Synchronously hashed password: ${hashSync}`);
+
+// Synchronously compare the plaintext password with the hashed password
+var resultSync = bcrypt.compareSync(myPlaintextPassword, hashSync);
+console.log(`Password match (sync): ${resultSync}`); // true or false
+
 //END_SYNC
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
